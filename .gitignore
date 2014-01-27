@@ -1,0 +1,4 @@
+node_modules
+Bacon/lib/*
+bin
+test/spec/**/*.html

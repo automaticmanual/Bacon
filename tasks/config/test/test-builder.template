@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Spec Runner </title>
+
+    <link rel="stylesheet" href="/lib/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="fixtures" style="display:none;"></div>
+    
+    <script src="/lib/chai/chai.js"></script>
+    <script src="/lib/mocha/mocha.js"></script>
+    <script src="/lib/requirejs/require.js"></script>
+
+    <script>
+      mocha.ui('bdd');
+      mocha.reporter('html');
+
+      var should = chai.should();
+    </script>
+
+    <script>
+      window.global = window;
+
+      function getParameterByName(name) {
+        var key, regex, results;
+
+        key = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        
+        regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+
+        results = regex.exec(location.search);
+
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+
+      global.DEBUG = getParameterByName('debug') || false;
+    </script>
+
+    <script>
+      require.config({
+        urlArgs: global.DEBUG ? '' : 'nocache=' + ((new Date()).getTime()),
+
+        baseUrl: '../../',
+      });
+    </script>
+
+    <script>
+      require([{{{specs}}}], function() {
+        if(window.mochaPhantomJS) {
+          mochaPhantomJS.run();
+        } else {
+          mocha.run();
+        }
+      });
+    </script>
+  </body>
+</html>
