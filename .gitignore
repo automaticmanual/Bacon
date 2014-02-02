@@ -1,4 +1,4 @@
 node_modules
-Bacon/lib/*
-bin
+lib/
+bin/
 test/spec/**/*.html
