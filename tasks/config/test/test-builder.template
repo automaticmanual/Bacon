@@ -38,11 +38,11 @@
       global.DEBUG = getParameterByName('debug') || false;
     </script>
 
+    <script src="/Bacon/config.js"></script>
+    
     <script>
       require.config({
-        urlArgs: global.DEBUG ? '' : 'nocache=' + ((new Date()).getTime()),
-
-        baseUrl: '../../',
+        baseUrl: '../..'
       });
     </script>
 
