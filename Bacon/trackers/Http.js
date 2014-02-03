@@ -29,8 +29,8 @@ define([
 
         transport.onerror = rejected;
 
-        resource = self.options.resource;
-        resource += transport.src.indexOf('?') !== -1 ? '&' : '?';
+        resource = self.options.resource || '';
+        resource += resource.indexOf('?') === -1 ? '?' : '&';
         resource += 'data=' + encodeURI(item.toString()) + '&_nocache=' + Date.now();
       
         transport.src = resource;

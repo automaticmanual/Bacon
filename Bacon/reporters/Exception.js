@@ -1,6 +1,7 @@
 define([
+  'Bacon/reportables/Reportable',
   'Bacon/reporters/Reporter'
-], function(Reporter) {
+], function(Reportable, Reporter) {
 
   /**
    * A exception reporting module. This is very limited right now as it doesnt support dynamic script loading.
@@ -39,11 +40,11 @@ define([
       }.bind(this));
 
       window.onerror = function(error, url, line) {
-        self.trigger('error', {
+        self.trigger('error', Reportable.create({
           error: error,
           url: url,
           line: line
-        });
+        }));
 
         if(onerror) {
           onerror.apply(this, [].slice.call(arguments));

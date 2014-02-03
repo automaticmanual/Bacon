@@ -46,33 +46,35 @@ define([
     },
 
     /**
-     * Build method for reporters.
-     * 
-     * @param  {String=} reporter
-     * @param  {String=} tracker
-     * @param  {Object=} options
+     * Initialize bacon instance based on config.
+     *
+     * @param {Object=} config
      * @return {?Bacon/reporters/Reporter}
      */
-    assemble: function(reporter, tracker, options) {
-      var myTracker, myReporter;
+    initialize: function(config) {
+      var tracker, reporter;
 
-      reporter = reporter || 'Exception',
-      
-      tracker = tracker || 'Http';
+      config = config || {};
 
-      options = options || {};
+      tracker = config.tracker || {};
 
-      if(!this.reporters.has(reporter)) {
-        throw new Error('No such reporter ' + reporter);
-      } else if(!this.trackers.has(tracker)) {
-        throw new Error('No such tracker ' + tracker);
+      reporter = config.reporter || {};
+
+      tracker.name = tracker.name || 'Http';
+
+      reporter.name = reporter.name || 'Exception';
+
+      if(!this.reporters.has(reporter.name)) {
+        throw new Error('No such reporter ' + reporter.name);
+      } else if(!this.trackers.has(tracker.name)) {
+        throw new Error('No such tracker ' + tracker.name);
       }
 
-      myTracker = this.trackers.get(tracker);
+      myTracker = this.trackers.get(tracker.name);
 
-      myReporter = this.reporters.get(reporter);
+      myReporter = this.reporters.get(reporter.name);
 
-      return myReporter.create(myTracker.create(options.tracker), options.reporter);
+      return myReporter.create(myTracker.create(tracker.options), reporter.options);
     }
   };
 
