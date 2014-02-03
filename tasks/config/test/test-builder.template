@@ -12,6 +12,7 @@
     <script src="/lib/chai/chai.js"></script>
     <script src="/lib/mocha/mocha.js"></script>
     <script src="/lib/requirejs/require.js"></script>
+    <script src="/lib/jquery/jquery.min.js"></script>
 
     <script>
       mocha.ui('bdd');
@@ -42,7 +43,11 @@
     
     <script>
       require.config({
-        baseUrl: '../..'
+        baseUrl: '../..',
+
+        paths: {
+          Fixtures: "/test/fixtures/Bacon"
+        }
       });
     </script>
 

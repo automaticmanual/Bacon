@@ -17,8 +17,6 @@ define([
 
     describe('#Object', function() {
       it('Should be instance of Microvent/helpers/Base.', function() {
-        should.exist(Reportable.instanceOf);
-
         Reportable.instanceOf(Base).should.be.true;
       });
     });

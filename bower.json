@@ -16,6 +16,7 @@
     "mocha": "~1.17.1",
     "requirejs": "~2.1.10",
     "almond": "~0.2.9",
-    "promiscuous": "https://raw2.github.com/RubenVerborgh/promiscuous/dist/promiscuous-browser.js"  
+    "promiscuous": "https://raw2.github.com/RubenVerborgh/promiscuous/dist/promiscuous-browser.js",
+    "jquery": "~2.1.0"
   }
 }

@@ -11,11 +11,11 @@ var gruntFile = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-mocha-phantomjs');
-  // grunt.loadNpmTasks('grunt-requirejs');
+  grunt.loadNpmTasks('grunt-requirejs');
 
   grunt.registerTask('build-tests', require('./tasks/helpers/super-glob.js')(grunt, 'test-builder'));
   grunt.registerTask('test', ['build-tests', 'connect:test', 'mocha_phantomjs']);
-  // grunt.registerTask('build',['jshint', 'test', 'requirejs']);
+  grunt.registerTask('build',['jshint', 'test', 'requirejs']);
   grunt.registerTask('dev', ['connect:dev']);
   grunt.registerTask('default', ['watch']);
 };

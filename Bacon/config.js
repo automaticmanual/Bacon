@@ -1,7 +1,8 @@
 require.config({
   paths: {
     Microvent: '../lib/Microvent/Microvent',
-    Promise: '../lib/promiscuous/index'
+    Promise: '../lib/promiscuous/index',
+    Bacon: '../Bacon'
   },
 
   shim: {
