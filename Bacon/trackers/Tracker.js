@@ -1,6 +1,6 @@
 define([
   'Microvent/helpers/Base',
-  'Promise'
+  'Bacon/helpers/Promise'
 ], function(Base, Promise) {
 
   /**
@@ -45,13 +45,15 @@ define([
      * @return {!Promise}
      */
     send: function(item) {
-      return new Promise(function(resolve, reject) {
-        if(item) {
-          return resolve(item);
-        }
+      var promise = new Promise();
 
-        return reject(item);
-      });
+      if(item) {
+        promise.resolve(item);
+      } else {
+        promise.reject(item);
+      }
+
+      return promise;
     }
   };
 

@@ -1,17 +1,19 @@
 define([
   'Bacon/trackers/Tracker',
-  'Promise'
+  'Bacon/helpers/Promise'
 ], function(Tracker, Promise) {
 
   var MyTracker = {
     send: function(item) {
-      return new Promise(function(resolve, reject) {
-        if(item && item.success) {
-          return resolve(item);
-        }
+      var promise = new Promise();
 
-        reject(item);
-      });
+      if(item && item.success) {
+        promise.resolve(item);
+      } else {
+        promise.reject(item);
+      }
+
+      return promise;
     }
   };
 

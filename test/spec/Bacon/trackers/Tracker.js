@@ -1,6 +1,6 @@
 define([
   'Microvent/helpers/Base',
-  'Promise',
+  'Bacon/helpers/Promise',
   'Bacon/trackers/Tracker'
 ], function(Base, Promise, Tracker) {
 
@@ -10,7 +10,7 @@ define([
     beforeEach(function() {
       tracker = Tracker.create();
 
-      promise = new Promise(function() {});
+      promise = new Promise();
     });
 
     describe('#Object', function() {

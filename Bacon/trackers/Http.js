@@ -1,7 +1,7 @@
 define([
-  'Bacon/trackers/Tracker',
-  'Promise'
-], function(Tracker, Promise) {
+  'Bacon/helpers/Promise',
+  'Bacon/trackers/Tracker'
+], function(Promise, Tracker) {
 
   /**
    * Http tracker module.
@@ -18,23 +18,27 @@ define([
      * @return {!Promise}
      */
     send: function(item) {
-      var self = this;
+      var promise, transport, resource;
 
-      return new Promise(function(resolved, rejected) {
-        var transport, resource;
+      promise = new Promise();
 
-        transport = document.createElement('img');
+      transport = document.createElement('img');
 
-        transport.onload = resolved;
+      transport.onload = function() {
+        promise.resolve(item);
+      };
 
-        transport.onerror = rejected;
+      transport.onerror = function() {
+        promise.reject(item);
+      };
 
-        resource = self.options.resource || '';
-        resource += resource.indexOf('?') === -1 ? '?' : '&';
-        resource += 'data=' + encodeURI(item.toString()) + '&_nocache=' + Date.now();
-      
-        transport.src = resource;
-      });
+      resource = this.options.resource || '';
+      resource += resource.indexOf('?') === -1 ? '?' : '&';
+      resource += 'data=' + encodeURI(item.toString()) + '&_nocache=' + Date.now();
+    
+      transport.src = resource;
+
+      return promise;
     }
   };
 

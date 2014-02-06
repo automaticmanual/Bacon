@@ -1,13 +1,13 @@
 require.config({
   paths: {
     Microvent: '../lib/Microvent/Microvent',
-    Promise: '../lib/promiscuous/index',
+    Promiz: '../lib/promiz/promiz',
     Bacon: '../Bacon'
   },
 
   shim: {
-    Promise: {
-      exports: 'Promise'
+    Promiz: {
+      exports: 'Promiz'
     }
   }
 });
