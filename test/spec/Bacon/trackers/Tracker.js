@@ -1,5 +1,5 @@
 define([
-  'Microvent/helpers/Base',
+  'Gizmo',
   'Bacon/helpers/Promise',
   'Bacon/trackers/Tracker'
 ], function(Base, Promise, Tracker) {
@@ -14,7 +14,7 @@ define([
     });
 
     describe('#Object', function() {
-      it('Should be instance of Microvent/helpers/Base.', function() {
+      it('Should be instance of Gizmo.', function() {
         Tracker.instanceOf(Base).should.be.true;
       });
     });

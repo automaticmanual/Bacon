@@ -1,12 +1,12 @@
 define([
-  'Microvent/helpers/Base',
+  'Gizmo',
   'Bacon/helpers/Promise'
 ], function(Base, Promise) {
 
   /**
    * Base tracker module. All trackers should extend this object.
    *
-   * @extends {!Microvent/helpers/Base}
+   * @extends {!Gizmo}
    * @exports Bacon/trackers/Tracker
    */
   var Tracker = {

@@ -1,5 +1,5 @@
 var config = {
-  taskName: 'requirejs.complile',
+  taskName: 'requirejs.compile',
   options: {
     name: 'Bacon/main',
     include: '../lib/almond/almond',

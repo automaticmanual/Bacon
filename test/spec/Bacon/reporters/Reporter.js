@@ -1,8 +1,8 @@
 define([
-  'Microvent/patterns/event/EventTarget',
+  'Microvent/patterns/event/EventEmitter',
   'Bacon/reporters/Reporter',
   'Fixtures/trackers/Tracker'
-], function(EventTarget, Reporter, Tracker) {
+], function(EventEmitter, Reporter, Tracker) {
 
   describe('Bacon/reporters/Reporter', function() {
     var reporter;
@@ -12,8 +12,8 @@ define([
     });
 
     describe('#Object', function() {
-      it('Should be instance of Microvent/patterns/event/EventTarget.', function() {
-        Reporter.instanceOf(EventTarget).should.be.true;
+      it('Should be instance of Microvent/patterns/event/EventEmitter.', function() {
+        Reporter.instanceOf(EventEmitter).should.be.true;
       });
     });
 

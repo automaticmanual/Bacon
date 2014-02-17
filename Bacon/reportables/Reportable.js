@@ -1,11 +1,11 @@
 define([
-  'Microvent/helpers/Base'
+  'Gizmo'
 ], function (Base) {
   
   /**
    * Base reportable object.
    *
-   * @extends {Microvent/helpers/Base}
+   * @extends {Gizmo}
    * @exports Bacon/reportables/Reportable
    */
   var Reportable = {

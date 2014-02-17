@@ -1,5 +1,5 @@
 define([
-  'Microvent/helpers/Base',
+  'Gizmo',
   'Microvent/patterns/Registry',
   'Bacon/reportables/Reportable',
   'Bacon/reporters/Reporter',
@@ -15,7 +15,7 @@ define([
   /**
    * Bacon module.
    *
-   * @extends {Microvent/helpers/Base}
+   * @extends {Gizmo}
    * @exports Bacon/Main
    */
   var Bacon = {
@@ -78,5 +78,5 @@ define([
     }
   };
 
-  return Base.extend(Bacon);
+  return Base.extend(Bacon).create();
 });

@@ -1,12 +1,12 @@
 define([
-  'Microvent/patterns/event/EventTarget',
+  'Microvent/patterns/event/EventEmitter',
   'Bacon/helpers/Dot'
-], function(EventTarget, Dot) {
+], function(EventEmitter, Dot) {
 
   /**
    * Base reporter module. All reporters should extend this object.
    * 
-   * @extends {Microvent/patterns/event/EventTarget}
+   * @extends {Microvent/patterns/event/EventEmitter}
    * @exports Bacon/reporters/Reporter
    */
   var Reporter = {
@@ -36,7 +36,7 @@ define([
         options: options || {}
       });
 
-      return EventTarget.create.call(reporter, reporter);
+      return EventEmitter.create.call(reporter, reporter);
     },
 
     /**
@@ -78,5 +78,5 @@ define([
 
   };
 
-  return EventTarget.extend(Reporter);
+  return EventEmitter.extend(Reporter);
 });

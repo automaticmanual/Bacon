@@ -1,5 +1,5 @@
 define([
-  'Microvent/helpers/Base',
+  'Gizmo',
   'Bacon/reportables/Reportable'
 ], function(Base, Reportable) {
 
@@ -16,7 +16,7 @@ define([
     });
 
     describe('#Object', function() {
-      it('Should be instance of Microvent/helpers/Base.', function() {
+      it('Should be instance of Gizmo.', function() {
         Reportable.instanceOf(Base).should.be.true;
       });
     });
