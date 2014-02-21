@@ -1,6 +1,6 @@
 define([
   'Gizmo'
-], function (Base) {
+], function (Gizmo) {
   
   /**
    * Base reportable object.
@@ -16,7 +16,7 @@ define([
      * @param  {Object=} attributes
      * @return {!Bacon/reportables/Repotable}
      */
-    create: function(attributes) {
+    construct: function(attributes) {
       return this.extend({
         attributes: attributes || {}
       });
@@ -41,5 +41,5 @@ define([
     }
   };
 
-  return Base.extend(Reportable);
+  return Gizmo.extend(Reportable);
 });

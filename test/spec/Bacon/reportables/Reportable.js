@@ -1,7 +1,7 @@
 define([
   'Gizmo',
   'Bacon/reportables/Reportable'
-], function(Base, Reportable) {
+], function(Gizmo, Reportable) {
 
   describe('Bacon/reportables/Reportable', function() {
     var reportable, attributes;
@@ -12,12 +12,12 @@ define([
         cat: 'ronny'
       };
 
-      reportable = Reportable.create(attributes);
+      reportable = Reportable.construct(attributes);
     });
 
     describe('#Object', function() {
       it('Should be instance of Gizmo.', function() {
-        Reportable.instanceOf(Base).should.be.true;
+        Reportable.instanceOf(Gizmo).should.be.true;
       });
     });
 

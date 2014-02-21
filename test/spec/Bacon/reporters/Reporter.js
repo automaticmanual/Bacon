@@ -8,7 +8,7 @@ define([
     var reporter;
 
     beforeEach(function() {
-      reporter = Reporter.create(Tracker);
+      reporter = Reporter.construct(Tracker);
     });
 
     describe('#Object', function() {

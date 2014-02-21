@@ -18,7 +18,7 @@ define([
      * @param  {Object=} options
      * @return {!Bacon/trackers/Tracker}
      */
-    create: function(tracker, options) {
+    construct: function(tracker, options) {
       var reporter = this.extend({
 
         /**
@@ -36,7 +36,7 @@ define([
         options: options || {}
       });
 
-      return EventEmitter.create.call(reporter, reporter);
+      return EventEmitter.construct.call(reporter, reporter);
     },
 
     /**

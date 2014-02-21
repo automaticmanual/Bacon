@@ -1,7 +1,7 @@
 define([
   'Gizmo',
   'Bacon/helpers/Promise'
-], function(Base, Promise) {
+], function(Gizmo, Promise) {
 
   /**
    * Base tracker module. All trackers should extend this object.
@@ -17,11 +17,12 @@ define([
      * @param  {Object=} options
      * @return {!Bacon/trackers/Tracker}
      */
-    create: function(options) {
-      var trackerOptions = options || {};
+    construct: function(options) {
+      var trackerOptions, tracker;
 
-      return this.extend({
+      trackerOptions = options || {};
 
+      tracker = {
         /**
          * Any options passed into tracker.
          * 
@@ -35,7 +36,9 @@ define([
          * @type {String}
          */
         resource: trackerOptions.resource || ''
-      });
+      };
+
+      return this.extend(tracker);
     },
 
     /**
@@ -56,6 +59,7 @@ define([
       return promise;
     }
   };
-
-  return Base.extend(Tracker);
+  window.Gizmo = Gizmo;
+  window.Tracker = Gizmo.extend(Tracker);
+  return Gizmo.extend(Tracker);
 });

@@ -25,13 +25,13 @@ define([
      * 
      * @return {!Bacon/Main}
      */
-    create: function() {
+    construct: function() {
       var bacon = this.extend({
-        reportables: Registry.create(),
+        reportables: Registry.construct(),
 
-        reporters: Registry.create(),
+        reporters: Registry.construct(),
 
-        trackers: Registry.create()
+        trackers: Registry.construct()
       });
 
       bacon.reportables.set('Reportable', require('Bacon/reportables/Reportable'));
@@ -74,9 +74,9 @@ define([
 
       myReporter = this.reporters.get(reporter.name);
 
-      return myReporter.create(myTracker.create(tracker.options), reporter.options);
+      return myReporter.construct(myTracker.construct(tracker.options), reporter.options);
     }
   };
 
-  return Base.extend(Bacon).create();
+  return Base.extend(Bacon).construct();
 });

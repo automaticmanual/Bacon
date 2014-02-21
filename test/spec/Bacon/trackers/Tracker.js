@@ -8,7 +8,7 @@ define([
     var tracker, promise;
 
     beforeEach(function() {
-      tracker = Tracker.create();
+      tracker = Tracker.construct();
 
       promise = new Promise();
     });

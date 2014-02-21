@@ -16,8 +16,8 @@ define([
      *
      * @return {!Bacon/reporters/Exception}
      */
-    create: function() {
-      var reporter = Reporter.create.apply(this, [].slice.call(arguments));
+    construct: function() {
+      var reporter = Reporter.construct.apply(this, [].slice.call(arguments));
 
       reporter._listen();
 
@@ -40,7 +40,7 @@ define([
       }.bind(this));
 
       window.onerror = function(error, url, line) {
-        self.trigger('error', Reportable.create({
+        self.trigger('error', Reportable.construct({
           error: error,
           url: url,
           line: line

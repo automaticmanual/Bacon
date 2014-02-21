@@ -7,7 +7,7 @@ define([
     var http;
 
     beforeEach(function() {
-      http = Http.create();
+      http = Http.construct();
     });
 
     describe('#Object', function() {
@@ -26,7 +26,7 @@ define([
       });
 
       it('Should resolve item if transport completes without errors.', function(done) {
-        Http.create({resource: 'https://www.google.com/images/srpr/logo11w.png'})
+        Http.construct({resource: 'https://www.google.com/images/srpr/logo11w.png'})
           .send({data: 'data'})
           .then(function() {
             done();
